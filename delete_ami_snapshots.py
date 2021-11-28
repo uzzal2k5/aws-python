@@ -26,12 +26,6 @@ def snap_age_calculate(date):
     diff = datetime.datetime.now() - date_obj
     return diff.days
 
-# Calculate AMI Age
-def days_old(date):
-    get_date_obj = parse(date)
-    date_obj = get_date_obj.replace(tzinfo=None)
-    diff = datetime.datetime.now() - date_obj
-    return diff.days
 
 # Get Snapshots Source List
 def get_snapshots_src(snapName):

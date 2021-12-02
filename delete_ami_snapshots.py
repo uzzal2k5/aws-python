@@ -46,7 +46,7 @@ def get_snapshots(snapAge,snapshots):
         START_TIME = snap['StartTime'].isoformat()
         snap_age_days = snap_age_calculate(START_TIME)
         if snap_age_days > snapAge:
-            print( "SNAPSHOTS ID : " + snap['SnapshotId'] + " NAME : "+ SNAP_NAME + "| START TIME : "+ snap['StartTime'] +'\n')
+            print( "SNAPSHOTS ID : " + snap['SnapshotId'] + " NAME : "+ SNAP_NAME + "| START TIME : ", snap['StartTime'] )
 
 # Snapshots Name
 snapAge = args.snapAge
@@ -69,7 +69,7 @@ for snap in snapshots:
            if delete_snap.lower() == 'No' or delete_snap.lower() == 'n' or  delete_snap.lower() == '':
               print("Not Deleting Any Snapshots ..")
               sys.exit()
-    except Exception(e):
+    except Exception as e:
         if 'InvalidSnapshot.InUse' in e.message:
            print("skipping this snapshot ", snap['SnapshotId'])
            continue
